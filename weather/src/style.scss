@@ -1,0 +1,151 @@
+/* General styles for body and background */
+body {
+  margin: 0;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url(../public/assets/images/bi.jpg); /* Replace with actual image path */
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden; /* Prevents scrolling if image slightly moves */
+  animation: backgroundAnim 20s infinite alternate ease-in-out;
+  background-repeat:unset;
+}
+
+/* Background animation */
+@keyframes backgroundAnim {
+  0% { background-position: center; }
+  50% { background-position: center 10px; }
+  100% { background-position: center -10px; }
+}
+
+/* Overlay to add a gradient effect over the background */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.2));
+  pointer-events: none;
+}
+
+/* Card container for the main content */
+.card {
+  background-color: rgba(255, 255, 255, 0.1); /* Light transparent white background */
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+  max-width: 800px;
+  width: 90%;
+  margin: 0 auto;
+  backdrop-filter: blur(10px); /* Blurred effect for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Subtle hover effect for the card */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* App styling within the card */
+.App {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  color: #f5f5f5;
+}
+
+/* Styling for the description section */
+#desc {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+
+#desc h1 {
+  margin-left: 15px;
+  font-weight: 600;
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+
+/* General responsive settings */
+@media (max-width: 1024px) {
+  /* Tablet responsiveness */
+  .card {
+    padding: 20px;
+    max-width: 90%;
+  }
+
+  #desc h1 {
+    font-size: 1.6rem; /* Slightly smaller for tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Mobile responsiveness */
+  body {
+    padding: 20px;
+    overflow-y: auto; /* Enable scrolling for smaller screens */
+  }
+
+  .card {
+    padding: 18px;
+    max-width: 100%;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  #desc {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  #desc h1 {
+    font-size: 1.4rem;
+    margin: 10px 0;
+  }
+
+  /* Adjust text within the card for readability */
+  .App h1,
+  .App p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small screens (e.g., small mobile devices) */
+  body {
+    padding: 10px;
+  }
+
+  .card {
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  #desc h1 {
+    font-size: 1.2rem;
+  }
+
+  .App h1,
+  .App p {
+    font-size: 0.9rem;
+  }
+}
+.card-view{
+  background: rgba(255, 255, 255, 0.05);  
+  border: 1px solid gray;
+  padding: 15px;
+  color: #fff !important;
+}
